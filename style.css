@@ -3,7 +3,7 @@ body {
     font-weight: 300;
 }
 
-a, #email, .tech, .repo {
+a, .tech, .repo, .year {
     font-family: 'Roboto Slab', monospace;
 }
 
@@ -29,9 +29,8 @@ a:active {
 
 
 #header {
-    margin-top: 5rem;
+    margin-top: 8%;
     margin-left: 1rem;
-    margin-bottom: 12rem;
 }
 
 #header p {
@@ -72,7 +71,7 @@ p#title {
 .panel {
     max-width: 82%;
     margin: 1rem;
-    margin-bottom: 7rem;
+    margin-top: 17%;
     overflow: hidden;
 }
 
@@ -92,7 +91,7 @@ p#title {
     float: left;
     margin-right: 1em;
     padding-bottom: unset;
-    max-width: 62%;
+    width: 62%;
 }
 
 .text {

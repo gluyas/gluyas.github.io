@@ -1,0 +1,101 @@
+body {
+    font-family: 'Roboto', sans-serif;
+    font-weight: 300;
+}
+
+a, #email, .tech, .repo {
+    font-family: 'Roboto Slab', monospace;
+}
+
+a:link {
+    color: #ff7f00;
+}
+
+a:visited {
+    color: #ff7f00;
+}
+
+a:focus {
+    border-color: #77dff8;
+}
+
+a:hover {
+    color: #77dff8;
+}
+
+a:active {
+    color: #ffff00;
+}
+
+
+#header {
+    margin-top: 5rem;
+    margin-left: 1rem;
+    margin-bottom: 12rem;
+}
+
+#header p {
+    margin: 0.1rem;
+}
+
+p#title {
+    font-family: 'Roboto Slab', monospace;
+    font-weight: 300;
+    font-size: 6rem;
+    line-height: 0.9;
+    margin-top: 0;
+    margin-bottom: 1rem;
+}
+
+.overbar {
+    width: 100%;
+    border-bottom: 2px solid black;
+    position: relative;
+    padding-bottom: 0.7rem;
+    margin-bottom: 1rem;
+}
+
+.overbar .name {
+    font-family: 'Roboto Slab', monospace;
+    font-weight: 300;
+    font-size: 2.5rem;
+    line-height: 1em;
+    margin: 0;
+}
+
+.overbar .year {
+    position: absolute;
+    right: 0;
+    bottom: 0.7rem;
+}
+
+.panel {
+    max-width: 82%;
+    margin: 1rem;
+    margin-bottom: 7rem;
+    overflow: hidden;
+}
+
+.underbar {
+    margin-top: 0.8em;
+    margin-bottom: 0.8em;
+    overflow: hidden;
+}
+
+.underbar .links {
+    text-align: right;
+    margin-top: -0.2em;
+    float: right;
+}
+
+.panel img {
+    float: left;
+    margin-right: 1em;
+    padding-bottom: unset;
+    max-width: 62%;
+}
+
+.text {
+    margin-top: -1em;
+    overflow: hidden;
+}

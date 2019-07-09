@@ -28,8 +28,22 @@
                 <a class="video" href="https://www.youtube.com/watch?v=zo6fOU6ERJ0">youtube</a><br/>
             </div>
         </div>
-        <p class="desc">
-            Work-in-progress physics toy.
+        <p>
+            Work-in-progress physics toy, written (mostly) from scratch.
+            Personal project, with inspiration from <em><a href="https://handmadehero.org/">Handmade Hero</a></em>.
+        </p><p>
+            My original intent with this project was to render a citrus fruit that could be siced by the user, revealing the intricate internal structure.
+            At some point early on, I decided it would be cool to add simple physics.
+        </p><p>
+            Turns out "simple physics" is a deep rabbit hole, and has been the focus of the project since then.
+            The current implementation is the most basic thing possible: impulse-based with no global constraint solver.
+            Despite this, it's surprisingly stable, and without a concrete use-case to evaluate it against, I'm happy with where it stands as a jack-of-all.
+        </p><p>
+            I was also able to take advantage of the simple shape and implement many functions using geometry and analysis.
+            Almost everything to do with the lemon is computed in closed-form; raycasting and inter-lemon collisions use much of the same reasoning, but require some iterative computations.
+        </p><p>
+            Moving forward, I'm looking to switch gears and focus on graphics.
+            In particular, I want to experiment with non-photorealistic visual styles which are naturally suited to the uniform patterns of a lemon's surface and interior.
         </p>
     </div>
 </div>
@@ -48,7 +62,14 @@
                 <a class="video" href="https://vimeo.com/274425173">vimeo</a><br/>
             </div>
         </div>
-        <p class="role">Programming, Technical Design</p>
+        <p>
+            Slapstick physics-based brawler where you can only control your legs.
+            Group project for 300-level Video Game Design.
+        </p><p>
+            Based on a protoype by one of the other members, I was responsible for all of the non-UI code in the group's version.
+            This included the physics-based gameplay, a variety of equippable shoes, with different abilities, customisable player costumes and colours, and juicy effects like screen-shake.
+            As the person implementing the team's gameplay ideas, I also did most of the game's technical design and balance.
+        </p>
     </div>
 </div>
 
@@ -66,7 +87,14 @@
                 <a class="video" href="https://www.youtube.com/watch?v=-zXQD4Y4_X0">youtube</a><br/>
             </div>
         </div>
-        <p class="role">Unit AI, Turn-Based Logic, Animation Sequencing</p>
+        <p>
+            Hex-based automaton combat.
+            Group project for 300-level Video Game Development.
+        </p><p>
+            Snow and Iron was developed as part of a joint Computer Science and Media Design paper.
+            As one of the Computer Science students on the team, I was responsible for programming the game's core systems.
+            This included the unit AI, the game's rules and logical representation, and animating the units.
+        </p>
     </div>
 </div>
 
@@ -83,7 +111,16 @@
                 <a class="repo" href="https://github.com/gluyas/niwa">github</a><br/>
             </div>
         </div>
-        <p class="role">Renderer, Netcode, World Format</p>
+        <p>
+            Ethereal garden adventure with your friends.
+            Group project for 200-level Software Engineering.
+        </p><p>
+            As a Software Engineering assignment, the game had to meet a set of specifications.
+            Of these, I implemented the sprite-based renderer, netcode, and core game state model.
+        </p><p>
+            Looking back on this project, I'm slightly mortified by the (course-advocated) abuse of class hierachies in its implementation.
+            But, I always thought the game's graphics managed a lot with a litle, and while there wasn't much gameplay to speak of, exploring the space and occaisionally bumping into your friends had a certain magic about it.
+        </p>
     </div>
 </div>
 

@@ -72,11 +72,11 @@ p#title {
     max-width: 82%;
     margin: 1rem;
     margin-top: 17%;
+    margin-bottom: 17%;
     overflow: hidden;
 }
 
 .underbar {
-    margin-top: 0.8em;
     margin-bottom: 0.8em;
     overflow: hidden;
 }
@@ -90,11 +90,11 @@ p#title {
 .panel img {
     float: left;
     margin-right: 1em;
+    margin-bottom: 1em;
     padding-bottom: unset;
     width: 62%;
 }
 
-.text {
-    margin-top: -1em;
+.panel .text {
     overflow: hidden;
 }

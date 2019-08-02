@@ -3,7 +3,7 @@ body {
     font-weight: 300;
 }
 
-a, .tech, .repo, .year {
+a, .tech, .year {
     font-family: 'Roboto Slab', monospace;
 }
 
@@ -97,4 +97,15 @@ p#title {
 
 .panel .text {
     overflow: hidden;
+}
+
+#app {
+    width: 100%;
+    height: 100%;
+    text-align: center;
+}
+
+canvas#lemon {
+    max-width: 1280;
+    max-height: 720;
 }

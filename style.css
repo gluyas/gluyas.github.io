@@ -1,111 +1,202 @@
+* {
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
 body {
-    font-family: 'Roboto', sans-serif;
+    font-family: 'Fira Sans', sans-serif;
     font-weight: 300;
+    color: white;
+    background-color: black;
 }
 
-a, .tech, .year {
-    font-family: 'Roboto Slab', monospace;
+b,
+.info,
+.links,
+.note,
+#audio-txt {
+    font-family: 'Fira Mono', monospace;
+    font-weight: 400;
 }
 
-a:link {
-    color: #ff7f00;
+.brief {
+    margin-top: 2em;
 }
 
-a:visited {
-    color: #ff7f00;
+h1, h2 {
+    font-family: 'Fira Mono', monospace;
 }
 
-a:focus {
-    border-color: #77dff8;
-}
-
-a:hover {
-    color: #77dff8;
-}
-
-a:active {
-    color: #ffff00;
-}
-
-
-#header {
-    margin-top: 8%;
-    margin-left: 1rem;
-}
-
-#header p {
-    margin: 0.1rem;
-}
-
-p#title {
-    font-family: 'Roboto Slab', monospace;
-    font-weight: 300;
+h1 {
     font-size: 6rem;
-    line-height: 0.9;
-    margin-top: 0;
+    font-weight: 400;
     margin-bottom: 1rem;
 }
 
-.overbar {
-    width: 100%;
-    border-bottom: 2px solid black;
-    position: relative;
-    padding-bottom: 0.7rem;
-    margin-bottom: 1rem;
+#main {
+    margin-left: 15vw;
+    margin-right: 15vw;
+    margin-top: 20vh;
 }
 
-.overbar .name {
-    font-family: 'Roboto Slab', monospace;
-    font-weight: 300;
-    font-size: 2.5rem;
-    line-height: 1em;
-    margin: 0;
+#main > .links {
+    font-size: 2rem;
+    margin-top: 2em;
+    margin-bottom: 2em;
 }
 
-.overbar .year {
+#main > .links > a {
+    font-weight: 700;
+}
+
+h2 {
+    display: inline-block;
+    margin-top: 6rem;
+    margin-bottom: 0rem;
+
+    font-size: 2rem;
+    font-weight: 700;
+    /* clear: both; */
+}
+
+h2 > span {
+    display: block;
+    font-weight: 400;
+    font-size: 1rem;
+}
+
+a:link, a:active, a:visited {
+    color: white;
+}
+
+.hi,
+a.hi:link, a.hi:active, a.hi:visited {
+    color: chartreuse;
+}
+
+a:hover, a.hi:hover {
+    color: orange;
+}
+
+.note {
+    color: gray;
+}
+
+.icon {
+    position: fixed;
+    filter: invert(1);
+    aspect-ratio: 1;
+    cursor: pointer;
+}
+
+#audio-txt {
+    display: block;
     position: absolute;
-    right: 0;
-    bottom: 0.7rem;
+
+    top: 1rem;
+    right: 1rem;
+    text-align:end;
+    transform: translate(-25px, 12.5px) translate(-1ch, -.5lh);
+
+    cursor: pointer;
 }
 
-.panel {
-    max-width: 82%;
-    margin: 1rem;
-    margin-top: 17%;
-    margin-bottom: 17%;
-    overflow: hidden;
+.control.icon  {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+
+    pointer-events: none;
+    opacity: 0;
 }
 
-.underbar {
-    margin-bottom: 0.8em;
-    overflow: hidden;
+.video-container {
+    position: relative;
+    display: block;
+    width: fit-content;
+    height: fit-content;
+    margin: 2rem;
 }
 
-.underbar .links {
-    text-align: right;
-    margin-top: -0.2em;
+.border {
+    border: 1px solid white;
+}
+
+video {
+    object-fit: contain;
+    max-width: 100%;
+    max-height: 100%;
+}
+
+#muted, #muted-toggle, #unmuted, #unmuted-toggle {
+    opacity: 0;
+    top:   1rem;
+    right: 1rem;
+}
+
+#up {
+    opacity: 0;
+    bottom: 1rem;
+    right:  1rem;
+}
+
+#back {
+    top:  1rem;
+    left: 1rem;
+}
+
+/* article { */
+/*     clear: both; */
+/* } */
+
+.card {
+    max-width: 100vw;
+    max-height: 100vh;
+    margin: 5vw;
+    margin-bottom: 30vh;
+    margin-top: 10vh;
+    display: flow-root;
+}
+
+.portrait.card {
+    margin-left: 15vw;
+    margin-right: 15vw;
+}
+
+.card:nth-child(even) {
+    text-align: end;
+}
+
+.card:nth-child(even) > .video-container {
+    text-align: start;
     float: right;
+    margin-left: 3vw;
 }
 
-.panel img {
+.card:nth-child(odd) > .video-container {
+    text-align: end;
     float: left;
-    margin-right: 1em;
-    margin-bottom: 1em;
-    padding-bottom: unset;
-    width: 62%;
+    margin-right: 3vw;
 }
 
-.panel .text {
-    overflow: hidden;
+.landscape > .video-container {
+    max-width: 60%;
+    max-height: 50vh;
+    aspect-ratio: 16 / 9;
+}
+.landscape ~ video {
+    aspect-ratio: 16 / 9;
 }
 
-#app {
-    width: 100%;
-    height: 100%;
-    text-align: center;
+.portrait > .video-container {
+    max-width: 100%;
+    max-height: 80vh;
+    aspect-ratio: 9 / 16;
 }
-
-canvas#lemon {
-    max-width: 1280;
-    max-height: 720;
+.portrait ~ video {
+    aspect-ratio: 9 / 16;
 }

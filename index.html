@@ -1,131 +1,37 @@
 <html>
+<html>
 <head>
-    <meta charset="utf-8">
-    <title>Marc Gluyas</title>
-    <link rel="stylesheet" href="style.css">
-    <link href="https://fonts.googleapis.com/css?family=Roboto:300|Roboto+Slab:300&display=swap" rel="stylesheet">
+  <meta charset="utf-8">
+  <title>marc</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fira+Mono:wght@400;500;700&family=Fira+Sans:wght@300;400&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="/style.css">
 </head>
 
 <body>
-<div id="header">
-    <p id="title">marc gluyas</p>
-    <p id="short">Programmer, Wellington</p>
-    <p id="email"><a href="mailto:marc.gluyas@gmail.com">marc.gluyas@gmail.com</a></p>
-    <p id="github"><a href="https://github.com/gluyas">github.com/gluyas</a></p>
-</div>
+  <div id="main">
+    <h1>marc gluyas</h1>
+    <p><b>
+      Te Whanganui-a-Tara<br/>
+      <a class="hi" href="mailto:marc.gluyas@gmail.com">marc.gluyas@gmail.com</a><br/>
+      <a class="hi" href="https://github.com/gluyas">github.com/gluyas</a>
+    </b>
+    <br/>
 
-<div class="panel" id="lemon">
-    <div class="overbar">
-        <span class="name">Lemon</span>
-        <span class="year">2019</span>
+    <div class="links">
+      <b>portfolios:</b>
+      <a class="hi" href="/software">software</a> /
+      <a class="hi" href="/creative">creative</a>
     </div>
-    <a href="/lemon/"><img src="https://i.imgur.com/4rFLvma.png" /></a>
-    <div class="text">
-        <div class="underbar">
-            <span class="tech">Rust, OpenGL</span>
-            <div class="links">
-                <a class="online" href="/lemon/">web build</a><br/>
-                <a class="repo" href="https://github.com/gluyas/lemon">github</a><br/>
-                <a class="video" href="https://www.youtube.com/watch?v=zo6fOU6ERJ0">youtube</a><br/>
-            </div>
-        </div>
-        <p>
-            Work-in-progress physics toy, written (mostly) from scratch.
-            Personal project, with inspiration from <em><a href="https://handmadehero.org/">Handmade Hero</a></em>.
-        </p><p>
-            Playable <a href="/lemon/">web build</a> running on WebAssembly and WebGL. Built using Rust's Emscripten backend.
-        </p><p>
-            My original intent with this project was to render a citrus fruit that could be siced by the user, revealing the intricate internal structure.
-            At some point early on, I decided it would be cool to add simple physics.
-        </p><p>
-            Turns out "simple physics" is a deep rabbit hole, and has been the focus of the project since then.
-            The current implementation is the most basic thing possible: impulse-based with no global constraint solver.
-            Despite this, it's surprisingly stable, and without a concrete use-case to evaluate it against, I'm happy with where it stands as a jack-of-all.
-        </p><p>
-            I was also able to take advantage of the simple shape and implement many functions using geometry and analysis.
-            Almost everything to do with the lemon is computed in closed-form; raycasting and inter-lemon collisions use much of the same reasoning, but require some iterative computations.
-        </p><p>
-            Moving forward, I'm looking to switch gears and focus on graphics.
-            In particular, I want to experiment with non-photorealistic visual styles which are naturally suited to the uniform patterns of a lemon's surface and interior.
-        </p>
-    </div>
-</div>
 
-<div class="panel" id="LEGS">
-    <div class="overbar">
-        <span class="name">LEGS</span>
-        <span class="year">2018</span>
-    </div>
-    <img src="https://i.imgur.com/1FYoGea.png" />
-    <div class="text">
-        <div class="underbar">
-            <span class="tech">Unity, C#</span>
-            <div class="links">
-                <a class="repo" href="https://github.com/gluyas/LEGS">github</a><br/>
-                <a class="video" href="https://vimeo.com/274425173">vimeo</a><br/>
-            </div>
-        </div>
-        <p>
-            Slapstick physics-based brawler where you can only control your legs.
-            Group project for 300-level Video Game Design.
-        </p><p>
-            Based on a protoype by one of the other members, I was responsible for all of the non-UI code in the group's version.
-            This included the physics-based gameplay, a variety of equippable shoes, with different abilities, customisable player costumes and colours, and juicy effects like screen-shake.
-            As the person implementing the team's gameplay ideas, I also did most of the game's technical design and balance.
-        </p>
-    </div>
-</div>
-
-<div class="panel" id="SnowAndIron">
-    <div class="overbar">
-        <span class="name">Snow and Iron</span>
-        <span class="year">2017</span>
-    </div>
-    <img src="https://i.imgur.com/e488Vw8.jpg" />
-    <div class="text">
-        <div class="underbar">
-            <span class="tech">Unity, C#</span>
-            <div class="links">
-                <a class="repo" href="https://github.com/gluyas/SnowAndIron">github</a><br/>
-                <a class="video" href="https://www.youtube.com/watch?v=-zXQD4Y4_X0">youtube</a><br/>
-            </div>
-        </div>
-        <p>
-            Hex-based automaton combat.
-            Group project for 300-level Video Game Development.
-        </p><p>
-            Snow and Iron was developed as part of a joint Computer Science and Media Design paper.
-            As one of the Computer Science students on the team, I was responsible for programming the game's core systems.
-            This included the unit AI, the game's rules and logical representation, and animating the units.
-        </p>
-    </div>
-</div>
-
-<div class="panel" id="niwa">
-    <div class="overbar">
-        <span class="name">Niwa</span>
-        <span class="year">2016</span>
-    </div>
-    <img src="https://i.imgur.com/fwiwtny.png" />
-    <div class="text">
-        <div class="underbar">
-            <span class="tech">Java, Swing</span>
-            <div class="links">
-                <a class="repo" href="https://github.com/gluyas/niwa">github</a><br/>
-            </div>
-        </div>
-        <p>
-            Ethereal garden adventure with your friends.
-            Group project for 200-level Software Engineering.
-        </p><p>
-            As a Software Engineering assignment, the game had to meet a set of specifications.
-            Of these, I implemented the sprite-based renderer, netcode, and core game state model.
-        </p><p>
-            Looking back on this project, I'm slightly mortified by the (course-advocated) abuse of class hierachies in its implementation.
-            But, I always thought the game's graphics managed a lot with a litle, and while there wasn't much gameplay to speak of, exploring the space and occaisionally bumping into your friends had a certain magic about it.
-        </p>
-    </div>
-</div>
-
+    <p class="note">
+      total site content: ~550MB<br>
+      desktop browser recommended<br>
+      some video media contains flashing images<br>
+    </p>
+  </div>
 </body>
 </html>

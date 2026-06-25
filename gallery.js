@@ -80,7 +80,7 @@ const audioSourceEnter = new IntersectionObserver(entries => {
     for (const entry of entries) {
         const video = entry.target;
         if (entry.isIntersecting) {
-            if (video.readyState < 4) return;
+            // if (video.readyState < 4) return;
             if (audioSource === video) return;
             if (audioSource) audioSource.muted = true;
             audioSource = video;

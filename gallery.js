@@ -96,11 +96,11 @@ const audioSourceEnter = new IntersectionObserver(entries => {
 document.querySelectorAll('.video-container').forEach((container) => {
     const video = container.querySelector('video');
 
-    const playControl   = container.querySelector('.control.play');
-    const muteControl   = container.querySelector('.control.mute');
-    const unmuteControl = container.querySelector('.control.unmute');
-    // muteControl.style.opacity = 0;
-    // unmuteControl.style.opacity = 0;
+    const playControl    = container.querySelector('.control.play');
+    const muteControl    = container.querySelector('.control.mute');
+    const unmuteControl  = container.querySelector('.control.unmute');
+    const loadingControl = container.querySelector('.control.loading');
+    const errorControl   = container.querySelector('.control.error');
 
     const audio      = container.classList.contains('audio');
     const background = container.classList.contains('background');
@@ -111,13 +111,23 @@ document.querySelectorAll('.video-container').forEach((container) => {
         video.style.cursor = 'pointer';
     }
 
+    var error = false;
+    var loading = true;
     var hover = false;
+
     function updateControlIcons() {
         playControl.style.opacity = 0;
         muteControl.style.opacity = 0;
         unmuteControl.style.opacity = 0;
+        loadingControl.style.opacity = 0;
+        errorControl.style.opacity = 0;
 
-        if (video.paused) {
+        if (error) {
+            errorControl.style.opacity = 1;
+        } else if (loading) {
+            loadingControl.style.opacity = 1;
+            video.style.cursor = 'wait';
+        } else if (video.paused) {
             playControl.style.opacity = 1;
             video.style.cursor = 'pointer';
         } else if (audio) {
@@ -125,13 +135,16 @@ document.querySelectorAll('.video-container').forEach((container) => {
                 if (video.muted) unmuteControl.style.opacity = 1;
                 else             muteControl.style.opacity   = 1;
             }
+            video.style.cursor = 'pointer';
         } else {
             video.style.cursor = 'default';
         }
     }
 
     video.addEventListener('click', () => {
-        if (video.paused) {
+        if (loading || error) {
+            return;
+        } else if (video.paused) {
             video.play();
         } else if (audio) {
             if (video.muted) {
@@ -146,9 +159,37 @@ document.querySelectorAll('.video-container').forEach((container) => {
             updateAudioIcons();
         }
     });
-    video.addEventListener('volumechange', () => { updateControlIcons(); });
-    video.addEventListener('pause',        () => { updateControlIcons(); });
-    video.addEventListener('play',         () => { updateControlIcons(); });
+
+    video.addEventListener('error', () => {
+        video.cancel();
+        error = true;
+        updateControlIcons();
+    });
+
+    video.addEventListener('stalled', () => {
+        if (!video.paused) video.pause();
+        loading = true;
+        updateControlIcons();
+    });
+    video.addEventListener('waiting', () => {
+        loading = true;
+        updateControlIcons();
+    });
+    video.addEventListener('playing', () => {
+        loading = false;
+        updateControlIcons();
+    });
+    video.addEventListener('canplay', () => {
+        loading = false;
+        updateControlIcons();
+    });
+    video.addEventListener('canplaythrough', () => {
+        if (video.paused) video.play();
+        loading = false;
+        updateControlIcons();
+    });
+
+
     video.addEventListener('mouseenter', () => {
         hover = true;
         updateControlIcons();
@@ -157,6 +198,11 @@ document.querySelectorAll('.video-container').forEach((container) => {
         hover = false;
         updateControlIcons();
     });
+
+    video.addEventListener('volumechange', () => { updateControlIcons(); });
+    video.addEventListener('pause',        () => { updateControlIcons(); });
+    video.addEventListener('play',         () => { updateControlIcons(); });
+
     updateControlIcons();
 })
 
@@ -181,7 +227,8 @@ window.addEventListener('scroll', () => {
 });
 
 upIcon.addEventListener('click', () => {
-    if (!muted && window.scrollY > window.innerHeight / 2 && !audioSource.parentElement.classList.contains('background')) {
+    if (!muted && window.scrollY > window.innerHeight / 2) {
+        if (audioSource && audioSource.parentElement.classList.contains('background')) return;
         toggleMute();
         unmuteAtTop = true;
     }

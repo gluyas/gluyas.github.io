@@ -14,7 +14,9 @@ const unmutedDynamicIcon = document.getElementById('unmuted-dynamic');
 
 const playDynamicIcon = document.getElementById('play');
 
+const upGroup = document.getElementById('footer-up');
 const upIcon = document.getElementById('up');
+const upTxt = document.getElementById('up-txt');
 
 var muted = true;
 var audioSource = document.querySelector('.audio > video');
@@ -80,7 +82,7 @@ const audioSourceEnter = new IntersectionObserver(entries => {
     for (const entry of entries) {
         const video = entry.target;
         if (entry.isIntersecting) {
-            // if (video.readyState < 4) return;
+            if (video.readyState < 4) return;
             if (audioSource === video) return;
             if (audioSource) audioSource.muted = true;
             audioSource = video;
@@ -214,7 +216,7 @@ window.addEventListener('scroll', () => {
     upIcon.style.opacity = Math.min(1, scroll);
     upIcon.style.pointerEvents = scroll > .5 ? 'auto' : 'none';
 
-    audioTxt.style.opacity = Math.max(0, 1 - window.scrollY / (audioTxt.offsetTop + audioTxt.offsetHeight));
+//     audioTxt.style.opacity = Math.max(0, 1 - window.scrollY / (audioTxt.offsetTop + audioTxt.offsetHeight));
 
     if (unmuteAtTop && window.scrollY < 1) {
         unmuteAtTop = false;
@@ -226,7 +228,7 @@ window.addEventListener('scroll', () => {
     // }
 });
 
-upIcon.addEventListener('click', () => {
+upGroup.addEventListener('click', () => {
     if (!muted && window.scrollY > window.innerHeight / 2) {
         if (audioSource && audioSource.parentElement.classList.contains('background')) return;
         toggleMute();
